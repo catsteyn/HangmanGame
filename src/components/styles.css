@@ -1,0 +1,39 @@
+/* Hangman container */
+.hangman {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Hangman image */
+  .hangman img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* Word container */
+  .word {
+    margin-bottom: 20px;
+  }
+  
+  /* Game button container */
+  .game-buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* Individual game button */
+  .game-button {
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Game button hover effect */
+  .game-button:hover {
+    background-color: #0056b3;
+  }

@@ -1,38 +1,200 @@
-.App {
+/* Global styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: rgb(48, 66, 45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure full viewport height */
+}
+
+.container {
+  max-width: 1000px;
+  text-align: center;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  background-color: rgb(76, 103, 73);
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1,
+p {
+  color: beige;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* Hangman styles */
+.hangman {
+  font-family: monospace;
+  font-size: large;
+  width: 200px;
+  margin: 20px auto;
+  text-align: left;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.word-container {
+  margin-bottom: 20px;
+}
+
+.word {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.keyboard {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 5px;
+  padding: 20px;
+  border: 0px solid;
+  border-radius: 5px;
+  background-color: #9fbaa9;
+}
+
+.key {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  height: 30px;
+  border: 2px solid rgb(60, 82, 57);
+  border-radius: 5px;
+  background-color: #e8f3e5;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 5px;
 }
 
-.App-link {
-  color: #61dafb;
+.key.clicked {
+  background-color: rgb(60, 82, 57); /* Dark color for clicked keys */
+  color: #fff; /* Text color for clicked keys */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+
+.key:hover {
+  background-color: rgb(222, 235, 219);
+}
+
+.letter {
+  display: inline-block;
+  margin: 5px;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.restart-btn{
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+  height: 48px;
+  margin: 0 10px;
+  padding: 16px 14px 18px;
+  background-color: #9fbaa9;
+  margin-top: 10px;
+}
+
+.restart-btn:hover{
+  background-color: #e8f3e5;
+  color: rgb(73, 98, 69);
+}
+
+/* Popup styles */
+.popup-container {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.popup h2,
+.popup p {
+  font-family: Arial, sans-serif;
+  color: black;
+}
+
+.popup h2 {
+  font-size: 30px;
+}
+
+.popup p {
+  font-size: 20px;
+}
+
+.popup button {
+  display: inline-block;
+  outline: none;
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 500px;
+  transition-property: background-color, border-color, color, box-shadow, filter;
+  transition-duration: .3s;
+  border: 1px solid transparent;
+  letter-spacing: 2px;
+  min-width: 160px;
+  text-transform: uppercase;
+  white-space: normal;
+  font-weight: 700;
+  text-align: center;
+  color: black;
+  height: 48px;
+  margin: 0 10px;
+  background-color: #9fbaa9;
+}
+
+.popup button:hover {
+  transform: scale(1.015);
+  background-color: #e8f3e5;
+  color: rgb(73, 98, 69);
+}
+
+.help-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.help-btn {
+  background-color: transparent;
+  border: none;
+  color: black;
+  text-decoration: underline;
+  margin-top: 10px;
+}
+
+.help-btn:hover{
+  color: #e8f3e5;
 }
